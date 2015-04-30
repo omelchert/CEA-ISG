@@ -533,11 +533,15 @@ def print_cfg(s):
 
 
 def main_CEA():
-        random.seed(int(sys.argv[1]))
 
-        G = readGraph_bondList_csg("./2d_gauss_L8.cfg")
+        bondFile="./2d_gauss_L8.cfg"
+        G = readGraph_bondList_csg(bondFile)
 
         s = [random.choice([-1,1]) for i in range(G.v)]
+        print "# CLUSTER EXACT APPROXIMATION (CEA) OF SPIN GLASS GROUNDSTATES"
+        print "# SIMPLE ITERATIVE APPLICATION OF THE CEA SCHEME TO ISING SYSTEM"
+        print "# SPECIFIED IN FILE: ",bondFile
+        print "# (iter) (erg) (cfg)"
         print 0,energy(G,s), print_cfg(s) 
 
         for i in range(0,1000):
